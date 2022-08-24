@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import './counter_app/counter_app.dart';
+import './snackbar_getx/snackbar_getx.dart';
 
 void main() => runApp(const MyApp());
 
@@ -10,9 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CounterApp(),
+      home: SnackbarGetX(),
     );
   }
 }
