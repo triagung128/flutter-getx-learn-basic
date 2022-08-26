@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import './workers_getx/workers_getx.dart';
+import './dependency_management/pages/first_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: WorkersGetX(),
+      home: FirstPage(),
     );
   }
 }
