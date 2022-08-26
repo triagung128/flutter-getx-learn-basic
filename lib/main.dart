@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import './route_management/page_1.dart';
-import './route_management/page_2.dart';
-import './route_management/page_3.dart';
-import './route_management/page_4.dart';
+import './bindings/pages/home_page.dart';
+import './bindings/pages/counter_page.dart';
+import './bindings/class_bindings/counter_bindings.dart';
+
+// import './route_management/page_1.dart';
+// import './route_management/page_2.dart';
+// import './route_management/page_3.dart';
+// import './route_management/page_4.dart';
 
 void main() => runApp(const MyApp());
 
@@ -15,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const Page1(),
+      home: const HomePage(),
       // routes: {
       //   "page-1": (context) => const Page1(),
       //   "page-2": (context) => const Page2(),
@@ -23,22 +27,32 @@ class MyApp extends StatelessWidget {
       //   "page-4": (context) => const Page4(),
       // },
       // === Materi Route Management ===
+      // getPages: [
+      //   GetPage(
+      //     name: "/page-1",
+      //     page: () => const Page1(),
+      //   ),
+      //   GetPage(
+      //     name: "/page-2",
+      //     page: () => const Page2(),
+      //   ),
+      //   GetPage(
+      //     name: "/page-3",
+      //     page: () => const Page3(),
+      //   ),
+      //   GetPage(
+      //     name: "/page-4",
+      //     page: () => const Page4(),
+      //   ),
+      // ],
+
+      // === Materi Binding ===
       getPages: [
         GetPage(
-          name: "/page-1",
-          page: () => const Page1(),
-        ),
-        GetPage(
-          name: "/page-2",
-          page: () => const Page2(),
-        ),
-        GetPage(
-          name: "/page-3",
-          page: () => const Page3(),
-        ),
-        GetPage(
-          name: "/page-4",
-          page: () => const Page4(),
+          name: "/counter",
+          page: () => CounterPage(),
+          // binding: BindingsBuilder.put(() => CounterController()),
+          binding: CounterBindings(),
         ),
       ],
     );
