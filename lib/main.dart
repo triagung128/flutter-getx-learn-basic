@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
-import './bindings/pages/home_page.dart';
-import './bindings/pages/counter_page.dart';
-import './bindings/class_bindings/counter_bindings.dart';
+import './get_storage/pages/home_page.dart';
+import './get_storage/pages/login_page.dart';
+
+// import './bindings/pages/home_page.dart';
+// import './bindings/pages/counter_page.dart';
+// import './bindings/class_bindings/counter_bindings.dart';
 
 // import './route_management/page_1.dart';
 // import './route_management/page_2.dart';
 // import './route_management/page_3.dart';
 // import './route_management/page_4.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  await GetStorage.init();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -19,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home: LoginPage(),
       // routes: {
       //   "page-1": (context) => const Page1(),
       //   "page-2": (context) => const Page2(),
@@ -47,12 +54,24 @@ class MyApp extends StatelessWidget {
       // ],
 
       // === Materi Binding ===
+      // getPages: [
+      //   GetPage(
+      //     name: "/counter",
+      //     page: () => CounterPage(),
+      //     // binding: BindingsBuilder.put(() => CounterController()),
+      //     binding: CounterBindings(),
+      //   ),
+      // ],
+
+      // === Materi GetStorage ===
       getPages: [
         GetPage(
-          name: "/counter",
-          page: () => CounterPage(),
-          // binding: BindingsBuilder.put(() => CounterController()),
-          binding: CounterBindings(),
+          name: "/home",
+          page: () => HomePage(),
+        ),
+        GetPage(
+          name: "/login",
+          page: () => LoginPage(),
         ),
       ],
     );
