@@ -5,6 +5,12 @@ import 'package:get_storage/get_storage.dart';
 import './get_storage/pages/home_page.dart';
 import './get_storage/pages/login_page.dart';
 
+// Case Study 1
+// import '_case_study/case_study_1/routes/app_pages.dart';
+
+// Case Study 2
+import '_case_study/case_study_2/routes/app_pages.dart';
+
 // import './bindings/pages/home_page.dart';
 // import './bindings/pages/counter_page.dart';
 // import './bindings/class_bindings/counter_bindings.dart';
@@ -16,7 +22,24 @@ import './get_storage/pages/login_page.dart';
 
 void main() async {
   await GetStorage.init();
-  runApp(const MyApp());
+  // runApp(const MyApp());
+
+  // Case Study 1
+  // runApp(
+  //   GetMaterialApp(
+  //     title: "Case Study 1",
+  //     initialRoute: AppPages.initial,
+  //     getPages: AppPages.routes,
+  //   ),
+  // );
+
+  runApp(
+    GetMaterialApp(
+      title: "Case Study 2",
+      initialRoute: AppPages.initial,
+      getPages: AppPages.routes,
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -33,6 +56,7 @@ class MyApp extends StatelessWidget {
       //   "page-3": (context) => const Page3(),
       //   "page-4": (context) => const Page4(),
       // },
+
       // === Materi Route Management ===
       // getPages: [
       //   GetPage(
